@@ -98,3 +98,71 @@ props ✨
 
 컴포넌트 안에서 무언가를 기억하고 싶다면 state를 사용해라
 
+
+-------------
+
+> <b>State</b> 
+
+컴포넌트 에서 상태값이나 특정값을 기억(=저장)하게 만들려면 
+state를 사용해야함
+
+
+```javascript
+export default class Square extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value : null,
+        };
+    }
+
+    render() {
+        return (
+          <button
+            className="square"
+            onClick={() => {
+              /** state 변경하기 */
+              this.setState({ value: "X" });
+            }}>
+                
+            {this.props.value} /** props로 값을 전달받음 */
+            {this.state.value} /** state 사용하기 */
+          </button>
+        );
+    }
+}
+```
+
+  리액트 컴포넌트는 생성자에 this.state를 설정하는것으로 state를 가질수 있다.
+  이때, this.state는 정의된 React 컴포넌트에 대해 비공개로 간주해야함. 
+
+
+react state란 정리하자면,
+화면 랜더링 결과물에 영향을 주는 객체다. 
+(state 값 변경시 컴포넌트는 re-rendering) 
+
+컴포넌트1 = state<br>
+컴포넌트2 = state
+
+그니까 결국은 리액트에서 말하고 싶은것은
+객체(컴포넌트)의 어떤 특정값을 지정하거나 기록해야할때 state는 값을 저장해주는 역할로 쓴다는거잖슴...?
+
+근데 그 값은 보통 부모 컴포넌트 한테서 받아오는 값이기 때문에 props로 받고 그걸 인스턴스화 시킬려고 생성자에 props 박아넣고 쓸때 setState로 값을 넘기는거잖슴?
+
+------
+
+자바 스크립트에서 super란...?
+- 자식 클래스 내에서 부모 클래스의 생성자를 호출할때 사용
+- 자식 클래스 내에서 부모 클래스의 메소드를 호출할때 사용
+
+
+```javascript
+super(argument); // 부모의 생성자 호출  
+super.functionOnParent(arguments); // 부모의 메소드 호출 
+```
+
+<div style="color:grey;">
+*주의점* <br>
+문법상 super()가 먼저 나오고 this()가 다음에 나와야 한다.</div>
+
+
