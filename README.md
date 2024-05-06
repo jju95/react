@@ -138,8 +138,8 @@ export default class Square extends React.Component {
 
 
 react state란 정리하자면,
-화면 랜더링 결과물에 영향을 주는 객체다. 
-(state 값 변경시 컴포넌트는 re-rendering) 
+화면 랜더링 결과물에 영향을 주는 객체다. <br>
+(state 값 변경시 컴포넌트는 `re-rendering`) 
 
 컴포넌트1 = state<br>
 컴포넌트2 = state
@@ -164,4 +164,24 @@ super.functionOnParent(arguments); // 부모의 메소드 호출
 <div style="color:grey;">
 *주의점* <br>
 문법상 super()가 먼저 나오고 this()가 다음에 나와야 한다.</div>
+
+<br>
+두개 이상의 컴포넌트를 가지고 있는 부모 컴포넌트가 있다면??<br>
+부모(자기자신)에게 state를 set해서 자식에게 state를 내려줘야함<br>
+<br>
+왜?why?<br>
+부모에게 state를 정의하면 자식간 state를 공유할수 있음. <br>
+
+즉, 자식간에 `자원 공유`가 ssap ssap possible ~!~!
+
+이러한 이유로 컴포넌트 구성시 부모에게 state를 구성해주자~
+
+
+Array.prototype.slice();
+> 특징으로는 <b>얕은 복사본</b>을 새로운 배열 객체로 반환
+
++) 얕은 복사와 깊은 복사의 차이를 알고싶다면
+https://velog.io/@y_jem/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%96%95%EC%9D%80-%EB%B3%B5%EC%82%AC%EC%99%80-%EA%B9%8A%EC%9D%80-%EB%B3%B5%EC%82%AC
+
+에서 확인 바람
 
