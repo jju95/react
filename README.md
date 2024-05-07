@@ -144,11 +144,35 @@ react state란 정리하자면,
 컴포넌트1 = state<br>
 컴포넌트2 = state
 
-그니까 결국은 리액트에서 말하고 싶은것은
-객체(컴포넌트)의 어떤 특정값을 지정하거나 기록해야할때 state는 값을 저장해주는 역할로 쓴다는거잖슴...?
+그니까 `결국은` 리액트에서 말하고 싶은것은</br>
+객체(컴포넌트)의 어떤 특정값을 지정하거나 기록해야할때 state라는 리액트 문법을 사용하는데,<br>
+근데 그 값은 보통 부모 컴포넌트 한테서 받아오는 값이기 때문에 props로 받고<br>
+그걸 인스턴스를 만들때 생성자에 props를 넣어주고 setState로 값을 지정해준다.
 
-근데 그 값은 보통 부모 컴포넌트 한테서 받아오는 값이기 때문에 props로 받고 그걸 인스턴스화 시킬려고 생성자에 props 박아넣고 쓸때 setState로 값을 넘기는거잖슴?
+대충 
 
+흐름도가
+
+```javascript
+객체(컴포넌트) extends Component {
+
+  constructor(props) {
+        super(props);
+        this.state = {
+            value : null,
+        };
+  }
+
+  render() {
+    return (
+      <div>
+        <button onclick={() =>  i = i + 1;  this.setState({ value: "test data" + i }); }>click me!</button>
+        {this.state.value}
+      </div>
+    );
+  }
+}
+```
 ------
 
 자바 스크립트에서 super란...?
